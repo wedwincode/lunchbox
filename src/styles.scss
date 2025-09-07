@@ -1,5 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 body,
 html {
-  //overflow-y: hidden;
+  overflow-y: hidden;
+}
+
+button {
+  background-color: #81ce3a !important;
+  color: #001529 !important;
+  border: 0 !important;
+  border-radius: 8px !important;
+
+  &:hover {
+    background-color: #98e551 !important;
+  }
 }

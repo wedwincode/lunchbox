@@ -1,10 +1,13 @@
-import { Component, inject, input } from '@angular/core'
+import { Component, inject, input, OnInit } from '@angular/core'
 
 import { NzCardModule } from 'ng-zorro-antd/card'
 import { NzIconDirective } from 'ng-zorro-antd/icon'
 import { NzButtonComponent } from 'ng-zorro-antd/button'
 import { DishComponent } from '../dish/dish.component'
 import { EditService } from '../../services/edit.service'
+import { LocalStorageService } from '../../services/local-storage.service'
+import { ILocalStorageData } from '../../models/local-storage-data.model'
+import { DaysOfWeek, MealEnum, MealLabels } from '../../models/enums'
 
 @Component({
     selector: 'app-meal',
@@ -13,24 +16,74 @@ import { EditService } from '../../services/edit.service'
     standalone: true,
     styleUrls: ['./meal.component.scss']
 })
-export class MealComponent {
+export class MealComponent implements OnInit {
     edit = inject(EditService)
-    type = input<'breakfast' | 'lunch' | 'dinner'>()
+    storage = inject(LocalStorageService)
+    mealType = input<MealEnum>()
+    dayOfWeek = input<DaysOfWeek>()
+
+    dishes: string[] = []
+
+    ngOnInit() {
+        this.dishes = this.getInitialValues()
+    }
 
     get title() {
-        switch (this.type()) {
-            case 'breakfast':
-                return 'Завтрак'
-            case 'lunch':
-                return 'Обед'
-            case 'dinner':
-                return 'Ужин'
-            default:
-                return 'Приём пищи'
+        return MealLabels[this.mealType()!]
+    }
+
+    get dayKey(): string {
+        const value = this.dayOfWeek()
+        const entry = Object.entries(DaysOfWeek).find(([, v]) => v === value)
+        return entry ? entry[0] : ''
+    }
+
+    updateDish(newText: string, index: number) {
+        this.dishes[index] = newText
+        this.dishes = this.dishes.filter((dish) => dish !== '')
+        this.updateStorage()
+    }
+
+    createDish() {
+        this.dishes.push('')
+    }
+
+    updateStorage() {
+        let data = this.storage.getItem<ILocalStorageData>('data')
+        if (!data) {
+            data = { week: {} }
+            this.storage.setItem<ILocalStorageData>('data', data)
+        }
+        const day = this.dayKey
+        const meal = this.mealType()
+
+        if (meal) {
+            if (!data.week[day]) {
+                data.week[day] = {
+                    breakfast: [],
+                    lunch: [],
+                    dinner: []
+                }
+            }
+
+            data.week[day][meal] = this.dishes
+            this.storage.setItem<ILocalStorageData>('data', data)
         }
     }
 
-    updateDish(newText: string) {
-        console.log(newText)
+    getInitialValues(): string[] {
+        const data = this.storage.getItem<ILocalStorageData>('data')
+        if (!data) {
+            return []
+        }
+
+        const day = this.dayKey
+        const meal = this.mealType()
+
+        if (meal && data.week[day] && Array.isArray(data.week[day][meal])) {
+            return data.week[day][meal]
+        }
+
+        return []
     }
 }

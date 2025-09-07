@@ -4,6 +4,7 @@
 
 .app-layout {
   height: 100%;
+  width: 100%;
 }
 
 .top-nav {
@@ -15,6 +16,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.header-button-container {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  border-radius: 15px;
 }
 
 .logo {
@@ -52,7 +60,35 @@ nz-content {
 }
 
 .inner-content {
+  h3 {
+    text-align: center;
+  }
   padding: 24px 50px;
   background: #fff;
   height: max-content;
+}
+
+.ant-card-head {
+  padding: 0 16px;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    a {
+      h1 {
+        display: none;
+      }
+    }
+  }
+
+  nz-content {
+    padding: 8px 16px;
+  }
+
+  .inner-content {
+    h3 {
+      font-size: 16px;
+    }
+    padding: 8px 16px;
+  }
 }

@@ -4,4 +4,27 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
+  gap: 4px;
+  margin-bottom: 5px;
+
+  .dish-name {
+    flex: 1;
+    min-width: 0;
+    font-size: 16px;
+    overflow-wrap: break-word;
+    word-break: break-word;
+
+    &:empty:before {
+      content: 'Введите блюдо...';
+      color: #aaa;
+      font-style: italic;
+    }
+  }
+
+  nz-icon {
+    flex: 0 0 auto;
+    cursor: pointer;
+    font-size: 16px;
+    height: 25px;
+  }
 }

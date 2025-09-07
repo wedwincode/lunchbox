@@ -6,11 +6,21 @@
                 <h1>LunchBox</h1>
             </a>
         </div>
-        <button nz-button nzType="primary" type="button" (click)="toggleEdit()">
-            {{ edit.isEdit() ? 'Сохранить' : 'Редактировать' }}
-        </button>
+        <div class="header-button-container">
+            <button nz-button nzType="primary" type="button" (click)="toggleClear()">Сбросить</button>
+            <button nz-button nzType="primary" type="button" (click)="toggleEdit()">
+                {{ edit.isEdit() ? 'Сохранить' : 'Редактировать' }}
+            </button>
+        </div>
     </nz-header>
     <div class="inner-content">
+        <h3 nz-typography>
+            @if (this.isBegin) {
+                Чтобы составить план питания, нажмите "Редактировать"
+            } @else {
+                Ваш план питания на неделю
+            }
+        </h3>
         <router-outlet></router-outlet>
     </div>
 </nz-layout>

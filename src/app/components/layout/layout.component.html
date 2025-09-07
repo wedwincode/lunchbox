@@ -1,12 +1,11 @@
 <div class="seven-grid">
-    @for (day of ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье']; track $index) {
+    @for (day of DaysOfWeek; track $index) {
         <div class="inner-box">
             <h4 nz-typography>{{ day }}</h4>
             <div class="meals">
-                <app-meal [type]="'breakfast'" />
-                <app-meal [type]="'lunch'" />
-                <app-meal [type]="'dinner'" />
-                <!--            <app-meal [type]="'dinner'"/>-->
+                <app-meal [mealType]="MealEnum.breakfast" [dayOfWeek]="day" />
+                <app-meal [mealType]="MealEnum.lunch" [dayOfWeek]="day" />
+                <app-meal [mealType]="MealEnum.dinner" [dayOfWeek]="day" />
             </div>
         </div>
     }
