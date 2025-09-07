@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router'
 
 export const routes: Routes = [
-    { path: '', loadChildren: () => import('./pages/welcome/welcome.routes').then((m) => m.WELCOME_ROUTES) }
+    { path: '', loadChildren: () => import('./pages/main/main.routes').then((m) => m.WELCOME_ROUTES) }
 ]

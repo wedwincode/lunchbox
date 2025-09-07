@@ -2,10 +2,10 @@ import { Component } from '@angular/core'
 import { LayoutComponent } from '../../components/layout/layout.component'
 
 @Component({
-    selector: 'app-welcome',
+    selector: 'app-main',
     imports: [LayoutComponent],
-    templateUrl: './welcome.html',
+    templateUrl: './main.html',
     standalone: true,
-    styleUrl: './welcome.scss'
+    styleUrl: './main.scss'
 })
-export class Welcome {}
+export class Main {}

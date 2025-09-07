@@ -1,7 +1,6 @@
 import { Component, inject, input, OnInit } from '@angular/core'
 
 import { NzCardModule } from 'ng-zorro-antd/card'
-import { NzIconDirective } from 'ng-zorro-antd/icon'
 import { NzButtonComponent } from 'ng-zorro-antd/button'
 import { DishComponent } from '../dish/dish.component'
 import { EditService } from '../../services/edit.service'
@@ -11,7 +10,7 @@ import { DaysOfWeek, MealEnum, MealLabels } from '../../models/enums'
 
 @Component({
     selector: 'app-meal',
-    imports: [NzCardModule, NzIconDirective, NzButtonComponent, DishComponent],
+    imports: [NzCardModule, NzButtonComponent, DishComponent],
     templateUrl: './meal.component.html',
     standalone: true,
     styleUrls: ['./meal.component.scss']

@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core'
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router'
+import { RouterOutlet } from '@angular/router'
 import { NzLayoutModule } from 'ng-zorro-antd/layout'
 import { NzMenuModule } from 'ng-zorro-antd/menu'
 import { NgOptimizedImage } from '@angular/common'
@@ -10,16 +10,7 @@ import { NzTypographyComponent } from 'ng-zorro-antd/typography'
 
 @Component({
     selector: 'app-root',
-    imports: [
-        RouterOutlet,
-        NzLayoutModule,
-        NzMenuModule,
-        RouterLinkActive,
-        RouterLink,
-        NgOptimizedImage,
-        NzButtonComponent,
-        NzTypographyComponent
-    ],
+    imports: [RouterOutlet, NzLayoutModule, NzMenuModule, NgOptimizedImage, NzButtonComponent, NzTypographyComponent],
     templateUrl: './app.html',
     standalone: true,
     styleUrl: './app.scss'
