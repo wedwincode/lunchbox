@@ -1,28 +1,32 @@
-# 🍱 LunchBox
+# LunchBox
 
 A simple **weekly meal planner** built with Angular.  
 Plan your breakfasts, lunches, and dinners for the whole week in one place.
 
-## ✨ Features
+## Features
 
 - Add meals for each day of the week
-- EditService or remove existing meals
-- UI-kit based design for quick and clean interface
+- Edit or remove existing meals
+- UI-kit based design
 - Data stored in browser (localStorage) – works without backend
-- Export to PDF (print or save your plan)
 
-## 🛠️ Tech Stack
+## Screenshots
+
+![img.png](.readme_images/img.png)
+
+![img.png](.readme_images/img2.png)
+
+## Tech Stack
 
 - [Angular](https://angular.io/)
-- UI Kit (e.g., Angular Material / PrimeNG)
+- UI Kit ([AntDesign](https://ng.ant.design/docs/introduce/en))
 - LocalStorage for persistence
-- (Optional) PDF export via `html2canvas` + `jsPDF`
 
-## 🚀 Getting Started
+## Getting Started
 
 ```bash
 # clone the repo
-git clone https://github.com/your-username/lunchbox.git
+git clone https://github.com/wedwincode/lunchbox.git
 cd lunchbox
 
 # install dependencies
