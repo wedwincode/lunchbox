@@ -1,0 +1,8 @@
+<nz-card style="width: 100%; border-radius: 10px; overflow: hidden" [nzTitle]="title">
+    <app-dish [text]="'Meal 1'" (textChange)="updateDish($event)" />
+    <app-dish [text]="'Meal 2'" (textChange)="updateDish($event)" />
+    <app-dish [text]="'Meal 3'" (textChange)="updateDish($event)" />
+    @if (edit.isEdit()) {
+        <app-dish />
+    }
+</nz-card>

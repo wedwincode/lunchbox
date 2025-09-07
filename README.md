@@ -6,7 +6,7 @@ Plan your breakfasts, lunches, and dinners for the whole week in one place.
 ## ✨ Features
 
 - Add meals for each day of the week
-- Edit or remove existing meals
+- EditService or remove existing meals
 - UI-kit based design for quick and clean interface
 - Data stored in browser (localStorage) – works without backend
 - Export to PDF (print or save your plan)

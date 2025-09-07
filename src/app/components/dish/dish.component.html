@@ -1,0 +1,12 @@
+<div class="dish-wrapper">
+    <div
+        class="dish-name"
+        [attr.contenteditable]="edit.isEdit()"
+        (blur)="textChange.emit($any($event.target).innerText)"
+    >
+        {{ text() }}
+    </div>
+    @if (this.edit.isEdit()) {
+        <nz-icon nzType="close-circle" nzTheme="outline" />
+    }
+</div>

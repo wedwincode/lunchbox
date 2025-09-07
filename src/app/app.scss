@@ -3,11 +3,18 @@
 }
 
 .app-layout {
-  height: 100vh;
+  height: 100%;
 }
 
 .top-nav {
   line-height: 64px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .logo {
@@ -47,5 +54,5 @@ nz-content {
 .inner-content {
   padding: 24px 50px;
   background: #fff;
-  height: 100%;
+  height: max-content;
 }

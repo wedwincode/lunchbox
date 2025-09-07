@@ -1,16 +1,14 @@
 <nz-layout class="app-layout">
-    <nz-header>
+    <nz-header class="header">
         <div class="logo">
             <a>
                 <img ngSrc="/logo.svg" alt="logo" height="48" width="48" />
                 <h1>LunchBox</h1>
             </a>
         </div>
-        <!--    <ul nz-menu class="top-nav" nzTheme="dark" nzMode="horizontal">-->
-        <!--      <li nz-menu-item routerLinkActive="ant-menu-item-selected" routerLink="/welcome">Home</li>-->
-        <!--      <li nz-menu-item>Account</li>-->
-        <!--      <li nz-menu-item>Profile</li>-->
-        <!--    </ul>-->
+        <button nz-button nzType="primary" type="button" (click)="toggleEdit()">
+            {{ edit.isEdit() ? 'Сохранить' : 'Редактировать' }}
+        </button>
     </nz-header>
     <div class="inner-content">
         <router-outlet></router-outlet>
