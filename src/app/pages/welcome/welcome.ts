@@ -1,8 +1,9 @@
 import { Component } from '@angular/core'
+import { LayoutComponent } from '../../layout/layout.component'
 
 @Component({
     selector: 'app-welcome',
-    imports: [],
+    imports: [LayoutComponent],
     templateUrl: './welcome.html',
     standalone: true,
     styleUrl: './welcome.scss'
